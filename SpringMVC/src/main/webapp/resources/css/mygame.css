@@ -1,0 +1,23 @@
+/* -- 10 -- */
+
+* {
+	box-sizing: border-box;
+}
+
+#computer {
+	border: solid black 3px;
+	background-image: url('https://apk-dl.com/detail/image/com.FunnyZip.RockScissorPaper-w200.png');
+	background-size: cover;
+	/* -- 14 -- */
+	background-repeat: not-repeat;
+	width: 150px;
+	height: 150px;
+}
+
+/* -- 17 --*/
+#message {
+	height:40px;
+	padding: 5px;
+}
+
+

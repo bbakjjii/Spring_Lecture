@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 21 -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd"> <!-- 밑에 있는 문법은 이 부분을 참고하고 있다라는 정의 -->
+<configuration>
+	<settings>
+		<setting name="jdbcTypeForNull" value="NULL"/> <!-- NULL은 소문자 안되고 대문자만 가능하다 -->
+	</settings>
+</configuration>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.springdb.mapper.EmployeeXmlMapper">
+  <select id="getAll" resultType="com.ezen.springdb.dto.Employee">
+    SELECT * FROM employees
+  </select>
+  <!-- 3 -->
+  <select id="get" resultType="com.ezen.springdb.dto.Employee">
+  	SELECT * FROM employees WHERE employee_id=#{employee_id}
+  </select>
+  <!-- 8 -->
+  <select id = "getLessSalary" resultType="com.ezen.springdb.dto.Employee">
+  	SELECT * FROM employees WHERE salary <![CDATA[<]]> #{salary} <!-- escape를 해줘야 한다 -->
+  </select>
+  <!-- 19 -->
+  <select id="getLastId" resultType="int">
+  	SELECT MAX(employee_id) FROM employees
+  </select>
+  <!-- 17 -->
+  <insert id="insert" parameterType="com.ezen.springdb.dto.Employee">
+  	<!-- 24 -->
+  	<selectKey keyProperty="employee_id" order="BEFORE" resultType="int"> <!-- 결과는 int값이다 -->
+  		SELECT employees_seq.nextval FROM dual <!-- 여기서 시퀀스를 선택한다. -->
+  	</selectKey>
+  	INSERT INTO employees VALUES(
+  		#{employee_id},<!-- 24 -->
+  		#{first_name},
+  		#{last_name},
+  		#{email},
+  		#{phone_number},
+  		#{hire_date},
+  		#{job_id},
+  		#{salary},
+  		#{commission_pct},
+  		#{manager_id},
+  		#{department_id}
+  	)
+  </insert>
+</mapper>
